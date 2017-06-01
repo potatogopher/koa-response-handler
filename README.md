@@ -1,10 +1,11 @@
 # koa-response-handler
 [![npm version][npm-image]][npm-url]
+
 Response handler middleware for [koa](https://github.com/koajs/koa).
 
 ## Installation
 ```js
-$ yarn install koa-response
+$ yarn install koa-response-handler
 ```
 ## Example
 ```js
