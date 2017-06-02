@@ -7,17 +7,27 @@ $ yarn add koa-response-handler
 ```
 ## Example
 ```js
-const responseHandler = require('koa-response-handler')
-const Koa = require('koa')
-const router = require('koa-router')();
-const app = new Koa()
+import Koa from 'koa'  
+import Router from 'koa-router'  
+import responseHandler from 'koa-response-handler'
 
-app.use(responseHandler({contentType: 'application/json'}))
+const app = new Koa()  
+const router = new Router()
 
+app  
+  .use(responseHandler({ contentType: 'application/json' }))
+  .use(router.routes())
+  .use(router.allowedMethods())
 
-router.get('/', function async (ctx, next) {
-  let res = { hello: 'world' }
-  ctx.res.ok(res)
+router.get('/:id', function async (ctx, next) {  
+    let data = {id: 1, hello: 'world' }
+
+    if (ctx.params.id !== data.id) {
+      ctx.res.notFound()
+      return
+    }
+
+    ctx.res.ok(data)
 })
 ```
 
