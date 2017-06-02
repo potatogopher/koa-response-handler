@@ -3,7 +3,7 @@ Response handler middleware for [koa](https://github.com/koajs/koa).
 
 ## Installation
 ```js
-$ yarn install koa-response-handler
+$ yarn add koa-response-handler
 ```
 ## Example
 ```js
