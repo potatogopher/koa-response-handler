@@ -23,11 +23,11 @@ router.get('/:id', function async (ctx, next) {
     let data = {id: 1, hello: 'world' }
 
     if (ctx.params.id !== data.id) {
-      ctx.res.notFound()
+      ctx.response.notFound()
       return
     }
 
-    ctx.res.ok(data)
+    ctx.response.ok(data)
 })
 ```
 
