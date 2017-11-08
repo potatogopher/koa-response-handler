@@ -21,7 +21,13 @@ const statusCodes = {
   UNAUTHORIZED: 401,
   FORBIDDEN: 403,
   NOT_FOUND: 404,
+  METHOD_NOT_ALLOWED: 405,
+  NOT_ACCEPTABLE: 406,
   REQUEST_TIME_OUT: 408,
+  CONFLICT: 409,
+  GONE: 410,
+  PAYLOAD_TOO_LARGE: 413,
+  URI_TOO_LONG: 414,
   IM_A_TEAPOT: 418,
   INTERNAL_SERVER_ERROR: 500,
   NOT_IMPLEMENTED: 501,
@@ -97,11 +103,53 @@ module.exports = (opts = {}) => {
       ctx.status = statusCodes.NOT_FOUND
     }
 
+    // 405 METHOD NOT ALLOWED
+    ctx.response.methodNotAllowed = (res = null) => {
+      ctx.type = contentType
+      ctx.body = res
+      ctx.status = statusCodes.METHOD_NOT_ALLOWED
+    }
+
+    // 406 NOT ACCEPTABLE
+    ctx.response.notAcceptable = (res = null) => {
+      ctx.type = contentType
+      ctx.body = res
+      ctx.status = statusCodes.NOT_ACCEPTABLE
+    }
+
     // 408 REQUEST TIME OUT
     ctx.response.requestTimeOut = (res = null) => {
       ctx.type = contentType
       ctx.body = res
       ctx.status = statusCodes.REQUEST_TIME_OUT
+    }
+
+    // 409 CONFLICT
+    ctx.response.conflict = (res = null) => {
+      ctx.type = contentType
+      ctx.body = res
+      ctx.status = statusCodes.CONFLICT
+    }
+
+    // 410 GONE
+    ctx.response.gone = (res = null) => {
+      ctx.type = contentType
+      ctx.body = res
+      ctx.status = statusCodes.GONE
+    }
+
+    // 413 PAYLOAD TOO LARGE
+    ctx.response.payloadTooLarge = (res = null) => {
+      ctx.type = contentType
+      ctx.body = res
+      ctx.status = statusCodes.PAYLOAD_TOO_LARGE
+    }
+
+    // 414 URI TOO LONG
+    ctx.response.uriTooLong = (res = null) => {
+      ctx.type = contentType
+      ctx.body = res
+      ctx.status = statusCodes.URI_TOO_LONG
     }
 
     // 418 I'M A TEAPOT
