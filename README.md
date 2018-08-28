@@ -1,6 +1,8 @@
 # koa-response-handler
 Response handler middleware for [koa](https://github.com/koajs/koa).
 
+<a href="https://communityinviter.com/apps/koa-js/koajs" rel="KoaJs Slack Community">![KoaJs Slack](https://img.shields.io/badge/Koa.Js-Slack%20Channel-Slack.svg?longCache=true&style=for-the-badge)</a>
+
 ## Installation
 ```js
 $ yarn add koa-response-handler
